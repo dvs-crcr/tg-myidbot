@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: Gateway API specification
+  version: 1.0.0
+servers:
+- url: https://<gateway_id>.apigw.yandexcloud.net
+paths:
+  /:
+    post:
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: <function_id>
+      operationId: processRequest
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ANSWER'
+          description: Default Answer
+      summary: Get params from POST
+components:
+  schemas:
+    ANSWER:
+      properties:
+        ok:
+          type: boolean
+      required:
+      - ok
+      type: object

@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>set webhook</title>
+  <meta charset="UTF-8">
+  <title>set webhook</title>
 </head>
 <body>
-    <form id="sendForm" action="" method="POST">
-        <ul>
-            <li><label>Токен: <input type="text" id="token" /></label></li>
-            <li><label>URL: <input type="text" id="url" name="url" /></label></li>
-            <li><button onclick="setWebhook(); return false;" >Установить Webhook</button></li>
-        </ul>
-    </form>
-    <script>
-        const setWebhook = function() {
-            let token = document.getElementById('token').value;
-            let actionUrl = `https://api.telegram.org/bot${token}/setWebhook`;
-            document.getElementById('sendForm').setAttribute('action', actionUrl);
-            document.getElementById('sendForm').send();
-        }
-    </script>
+<form id="sendForm" action="" method="POST">
+  <ul>
+    <li><label>Токен: <input type="text" id="token"/></label></li>
+    <li><label>URL: <input type="text" id="url" name="url"/></label></li>
+    <li>
+      <button onclick="setWebhook(); return false;">Установить Webhook</button>
+    </li>
+  </ul>
+</form>
+<script>
+  const setWebhook = function () {
+    let token = document.getElementById('token').value;
+    let actionUrl = `https://api.telegram.org/bot${ token }/setWebhook`;
+    document.getElementById('sendForm').setAttribute('action', actionUrl);
+    document.getElementById('sendForm').send();
+  };
+</script>
 </body>
 </html>
